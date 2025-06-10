@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import Ngugi from '../../assets/Ngugi.jpeg';
-import backgroundImage from "../../assets/background.jpg";
+// import backgroundImage from "../../assets/background.jpg";
 import Petals from '../../assets/Petals.jpg';
 import Weep from '../../assets/weep.jpeg';
 import River from '../../assets/River.jpeg';
 
 const ImageList = [
+    {
+      id: 1,
+      img: Ngugi,
+      title: "I will Marry When I Want",
+      description: 'I Will Marry When I Want is a powerful play by renowned Kenyan writer Ngũgĩ wa Thiong’o, co-authored with Ngũgĩ wa Mirii. Set in post-colonial Kenya, the play explores themes of class struggle, land ownership, religious hypocrisy, and cultural identity. It follows the life of Kĩgũũnda, a poor farmer, and his family as they are manipulated and exploited by wealthy landowners and missionaries under the guise of modernization and Christian values. Through its compelling dialogue and symbolism, the play critiques neocolonialism and challenges the injustices faced by ordinary Kenyans. Originally written in Kikuyu and performed by local communities, the work underscores the importance of cultural heritage and resistance in the face of oppression.'
+    },
     {
         id: 1,
         img: Petals,
@@ -26,7 +32,7 @@ const ImageList = [
     }
 ]
 
-const Hero = () => {
+const Hero = ({ handleOrderPopup }) => {
   const [imageId, setImageId] = useState(Ngugi);
   const [title, setTitle] = useState('I Will Marry When I Want!!!');
   const [description, setDescription] = useState(`I Will Marry When I Want is a powerful play by renowned 
@@ -38,19 +44,19 @@ compelling dialogue and symbolism, the play critiques neocolonialism and challen
 by ordinary Kenyans. Originally written in Kikuyu and performed by local communities, the work underscores 
 the importance of cultural heritage and resistance in the face of oppression.`);
 
-  // Corrected: use backticks ` for template string and corrected typo 'backgroudImage' to 'backgroundImage'
-  const bgImage = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    width: '100%',
-  };
+
+  // const bgImage = {
+  //   backgroundImage: `url(${backgroundImage})`,
+  //   backgroundSize: 'cover',
+  //   backgroundPosition: 'center',
+  //   backgroundRepeat: 'no-repeat',
+  //   width: '100%',
+  // };
 
   return (
     <div
       className='min-h-[550px] sm:min-h-[650px] bg-gray-100 flex justify-center items-center dark:bg-gray-950 dark:text-white duration-200'
-      style={bgImage} 
+     
     >
       <div className="container pb-8 sm:pb-0">
         <div className="grid grid-cols-1 sm:grid-cols-2">
@@ -67,7 +73,7 @@ the importance of cultural heritage and resistance in the face of oppression.`);
             </p>
 
             <div>
-              <button className='bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-full mt-4 hover:scale-105 duration-200 font-bold'>
+              <button onClick={handleOrderPopup}  className='bg-gradient-to-r bg-primary text-white px-4 py-2 rounded-full mt-4 hover:scale-105 duration-200 font-bold'>
                 Order Now
               </button>
             </div>

@@ -31,7 +31,7 @@ const DropdownLinks = [
     }
 ];
 
-const Navbar = () => {
+const Navbar = ({ handleOrderPopup }) => {
   return (
     <div className='shadow-lg'>
       <div className="container py-3 sm:py-0">
@@ -93,6 +93,7 @@ const Navbar = () => {
                 <button
                 className='bg-gradient-to-r bg-primary font-bold text-white
                 px-4 py-1 rounded-full flex items-center gap-3 hover:scale-105 duration-300'
+                onClick={handleOrderPopup}
                 >Order
                 <FaCartShopping 
                 className='text-xl text-white drop-shadow-sm cursor-pointer'
